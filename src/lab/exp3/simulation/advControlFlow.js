@@ -168,16 +168,37 @@ window.view = {
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
 		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
-		{
-			this.displayLoop('forLoopContent', 'codeContentFor1')
+		{   if(model.inp>=0 && model.inp<=20)
+			{
+				this.displayLoop('forLoopContent', 'codeContentFor1')
+			}
+			else{
+				alert('Invalid input')
+				return false;
+			}
+			
 		}
 		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
-		{
+		{    if(model.inp >= 0 && model.inp <= 20)
+			{
 			this.displayLoop('whileLoopContent', 'codeContentWhile1')
+			}
+			else
+			{
+				alert('Invalid input')
+				return false;
+			}
 		}
 		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
-		{
+		{   if(model.inp>=0 && model.inp<=20)
+			{
 		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
+			}
+			else
+			{
+				alert('Invalid input')
+				return false;
+			}
 		}
 		this.disableButton('btnStart')
 		this.changeClass( 'btnStart', 'buttonDisable startButton')
